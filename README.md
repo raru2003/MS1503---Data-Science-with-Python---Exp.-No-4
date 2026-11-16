@@ -45,18 +45,56 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 #Step 1: Create dataset
+import matplotlib.pyplot as plt
+import numpy as np
+
+years = np.arange(2017, 2024)
+
+revenue = [50, 60, 75, 90, 110, 130, 150]
+expenses = [30, 40, 45, 55, 65, 80, 95]
 
 #Step 2: Plot Revenue and Expenses
+plt.figure(figsize=(8, 5))
 
+plt.plot(years, revenue, color='green',
+         marker='o', label='Revenue', linewidth=2)
+
+plt.plot(years, expenses, color='red',
+         linestyle='--', marker='s',
+         label='Expenses', linewidth=2)
+         
 #Step 3: Add titles, labels, and grid
+plt.title("Company Revenue and Expenses (2017-2023)",
+          fontsize=14, fontweight='bold')
+
+plt.xlabel("Year")
+plt.ylabel("Amount (Lakhs)")
+
+plt.grid(True, linestyle='--', alpha=0.5)
 
 #Step 4: Add legend
+plt.legend(loc='upper left')
 
 #Step 5: Annotate highest revenue and expense
+max_rev = np.argmax(revenue)
+max_exp = np.argmax(expenses)
 
+plt.annotate('Highest Revenue',
+             xy=(years[max_rev], revenue[max_rev]),
+             xytext=(2019, 145),
+             arrowprops=dict(arrowstyle='->'))
+
+plt.annotate('Highest Expense',
+             xy=(years[max_exp], expenses[max_exp]),
+             xytext=(2020, 110),
+             arrowprops=dict(arrowstyle='->'))
+             
 #Step 6: Adjust layout and show plot
+plt.tight_layout()
+plt.show()
 
 ## Output
+<img width="912" height="537" alt="image" src="https://github.com/user-attachments/assets/2c96aa34-d11c-438e-a4b4-5239beed3ee1" />
 
 
 ## Result
